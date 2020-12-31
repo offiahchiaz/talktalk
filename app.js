@@ -33,6 +33,16 @@ app.get('/', (req, res) => {
   res.redirect('/blogs');
 });
 
+app.get('/blogs', (req, res) => {
+  Blog.find({}, (err, blogs) => {
+    if (err) {
+      console.log(err);
+    }
+
+    res.render('/blogs', { blogs });
+  });
+});
+
 app.listen(4000, () => {
   console.log(`Talktalk server up and running!`);
 });
