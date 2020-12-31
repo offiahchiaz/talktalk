@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 // APP CONFIG
-mongoose.connect('mongodb://localhost:27017/blend', 
+mongoose.connect('mongodb://localhost:27017/talktalk', 
 { useNewUrlParser: true,  useUnifiedTopology: true });
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -21,7 +21,17 @@ const blogSchema = new mongoose.Schema({
 
 const Blog = mongoose.model('Blog', blogSchema);
 
+// Blog.create({
+//   title: 'First Blog Post',
+//   image: 'https://images.unsplash.com/photo-1606788073305-5f071cb80485?ixid=MXwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+//   body: 'First blog body'
+// });
+
 // RESTFUL ROUTESS
+
+app.get('/', (req, res) => {
+  res.redirect('/blogs');
+});
 
 app.listen(4000, () => {
   console.log(`Talktalk server up and running!`);
