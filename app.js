@@ -39,7 +39,7 @@ app.get('/blogs', (req, res) => {
       console.log(err);
     }
 
-    res.render('/blogs', { blogs });
+    res.render('index', { blogs });
   });
 });
 
