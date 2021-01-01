@@ -43,6 +43,10 @@ app.get('/blogs', (req, res) => {
   });
 });
 
+app.get('/blogs/new', (req, res) => {
+  res.render('new');
+});
+
 app.listen(4000, () => {
   console.log(`Talktalk server up and running!`);
 });
